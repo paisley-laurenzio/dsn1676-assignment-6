@@ -13,8 +13,8 @@ body {
 section {
   padding: 4em 1em;
   position: relative;
-
   border-bottom: 1px solid #ccc;
+  overflow: hidden;
 }
 
 section:nth-child(5) {
@@ -31,15 +31,13 @@ div {
   height: 100px;
   top: calc(50% - 50px);
   width: 200px;
-
   background-color: limegreen;
   opacity: 0;
-  transition: opacity .5s ease-in;
+  transition: all 200ms linear;
 }
 
-.showup {
+.js-box-show {
   opacity: 1;
-  
 };
 
 
@@ -48,20 +46,29 @@ div {
   right: 2em;
   top: calc(50% - 40px);
   width: 80px;
-
   background-color: hotpink;
   transform: rotate(45deg);
+  transition: all 200ms linear;
+}
+
+.js-diamond-move {
+    right: -100px;
 }
 
 .panel {
   width: 250px;
-  top: 50%;
-
+  top: 10%;
   background-color: yellow;
   transform: translateY(-50%);
-
   color: darkgoldenrod;
   text-align: center;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 200ms linear;
+}
+
+.js-panel-collapse {
+  max-height: 10em;
 }
 
 .panel h2 {
@@ -73,10 +80,81 @@ div {
   height: 100px;
   top: calc(50% - 50px);
   width: 100px;
-
   background-color: orange;
   border-radius: 50%;
 }
+
+.js-ball-bounce{
+  -webkit-animation: ball-bounce 1s linear;
+  animation: ball-bounce 1s linear;
+}
+
+@-webkit-keyframes ball-bounce {
+
+    0% {
+      top:calc(50% - 70px);
+      top: 2em;
+    }
+    
+    25% {
+      top:calc(50% - 60px);
+      right: 4em;
+    }
+    
+    50% {
+    top:calc(50% - 40px);
+    right: 6em;
+  }
+
+  75% {
+    top:calc(50% - 60px);
+    right: 8em;
+  }
+  
+  90% {
+    top:calc(50% - 30px);
+    right: 10em;
+  }
+
+  100% {
+    top:calc(50% - 50px);
+    right: 9em;
+  }
+}
+
+@keyframes ball-bounce {
+
+    0% {
+      top:calc(50% - 70px);
+      top: 2em;
+    }
+    
+    25% {
+      top:calc(50% - 60px);
+      right: 4em;
+    }
+    
+    50% {
+    top:calc(50% - 40px);
+    right: 6em;
+  }
+
+  75% {
+    top:calc(50% - 60px);
+    right: 8em;
+  }
+  
+  90% {
+    top:calc(50% - 30px);
+    right: 10em;
+  }
+
+  100% {
+    top:calc(50% - 50px);
+    right: 9em;
+  }
+}
+
 
 .list {
   bottom: 1em;
@@ -86,7 +164,6 @@ div {
   right: 1em;
   top: 1em;
   width: 250px;
-
   border: 1px solid #ccc;
   overflow: hidden;
   overflow-y: auto;
@@ -94,9 +171,36 @@ div {
 
 .list li {
   padding: 0.5em;
-
   background-color: plum;
   border: 1px solid mediumpurple;
-
   color: mediumpurple;
+}
+
+
+.js-list-append {
+  -webkit-animation: append 1s linear forward;
+  animation: append 1s linear forward;
+  overflow: hidden;
+}
+
+@-webkit-keyframes append {
+
+  0% {
+    max-height: 0em;
+  }
+  
+  100% {
+    max-height: 2em;
+  }
+    
+  @keyframes append {
+  
+      0% {
+        max-height: 0em;
+      }
+
+      100% {
+        max-height: 2em;
+      }
+  }
 }
