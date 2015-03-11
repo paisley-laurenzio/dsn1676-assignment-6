@@ -5,7 +5,6 @@ html {
 body {
   margin: 2em auto;
   max-width: 35em;
-
   background-color: #fff;
   border: 1px solid #ccc;
 }
@@ -34,31 +33,34 @@ div {
   background-color: limegreen;
   opacity: 0;
   transition: all 200ms linear;
+  overflow: hidden;
 }
 
 .js-box-show {
   opacity: 1;
-};
+}
 
 
 .diamond {
   height: 80px;
-  right: 2em;
-  top: calc(50% - 40px);
   width: 80px;
+  right: -100px;
+  top: calc(50% - 40px);
   background-color: hotpink;
+  -webkit-transform: rotate(45deg);
   transform: rotate(45deg);
   transition: all 200ms linear;
 }
 
-.js-diamond-move {
-    right: -100px;
+.js-move {
+  right: 2em;
 }
 
-.panel {
+.panel {  
   width: 250px;
-  top: 10%;
+  top: 50%;
   background-color: yellow;
+  -webkit-transform: translateY(-50%);
   transform: translateY(-50%);
   color: darkgoldenrod;
   text-align: center;
@@ -102,24 +104,24 @@ div {
     }
     
     50% {
-    top:calc(50% - 40px);
-    right: 6em;
-  }
+      top:calc(50% - 40px);
+      right: 6em;
+    }
 
-  75% {
-    top:calc(50% - 60px);
-    right: 8em;
-  }
+    75% {
+      top:calc(50% - 60px);
+      right: 8em;
+    }
   
-  90% {
-    top:calc(50% - 30px);
-    right: 10em;
-  }
+    90% {
+      top:calc(50% - 30px);
+      right: 10em;
+    }
 
-  100% {
-    top:calc(50% - 50px);
-    right: 9em;
-  }
+    100% {
+      top:calc(50% - 50px);
+      right: 9em;
+    }
 }
 
 @keyframes ball-bounce {
@@ -135,24 +137,24 @@ div {
     }
     
     50% {
-    top:calc(50% - 40px);
-    right: 6em;
-  }
+      top:calc(50% - 40px);
+      right: 6em;
+    }
 
-  75% {
-    top:calc(50% - 60px);
-    right: 8em;
-  }
+    75% {
+      top:calc(50% - 60px);
+      right: 8em;
+    }
   
-  90% {
-    top:calc(50% - 30px);
-    right: 10em;
-  }
+    90% {
+      top:calc(50% - 30px);
+      right: 10em;
+    }
 
-  100% {
-    top:calc(50% - 50px);
-    right: 9em;
-  }
+    100% {
+      top:calc(50% - 50px);
+      right: 9em;
+    }
 }
 
 
@@ -174,17 +176,18 @@ div {
   background-color: plum;
   border: 1px solid mediumpurple;
   color: mediumpurple;
-}
-
-
-.js-list-append {
-  -webkit-animation: append 1s linear forward;
-  animation: append 1s linear forward;
+  max-height: 0;
   overflow: hidden;
 }
 
-@-webkit-keyframes append {
+.js-list-append {
+  -webkit-animation: js-list-append 200ms linear forwards;
+  animation: js-list-append 200ms linear forwards;
+}
 
+
+@-webkit-keyframes js-list-append {
+  
   0% {
     max-height: 0em;
   }
@@ -192,15 +195,16 @@ div {
   100% {
     max-height: 2em;
   }
-    
-  @keyframes append {
-  
-      0% {
-        max-height: 0em;
-      }
-
-      100% {
-        max-height: 2em;
-      }
-  }
 }
+    
+@keyframes js-list-append {
+  
+    0% {
+      max-height: 0em;
+    }
+
+    100% {
+      max-height: 2em;
+    }
+}
+

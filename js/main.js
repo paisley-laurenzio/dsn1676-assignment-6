@@ -1,7 +1,7 @@
 var $showHide = $('.btn-show-hide');
 var $box = $('.box');
 
-var $btnmove = $('.btn-move');
+var $btnMove = $('.btn-move');
 var $diamond = $('.diamond');
 
 var $btnCollapse = $('.btn-collapse-expand');
@@ -18,8 +18,8 @@ $showHide.on('click', function () {
     $box.toggleClass('js-box-show');
 });
 
-$btnmove.on('click', function () {
-    $diamond.toggleClass('js-diamond-move');
+$btnMove.on('click', function () {
+    $diamond.toggleClass('js-move');
 });
 
 $btnCollapse.on('click', function () {
@@ -36,10 +36,8 @@ $circle.on('webkitAnimationEnd animationend', function () {
 
 $btnAppend.on('click', function() {
 
-        var $li = $('<li>');
+        var $li = $('<li>').html('New List Item');
     
-        $li.append("New List Item");
         $list.prepend($li);
-        $li,addClass ('js-list-append');
-
+        $li.toggleClass ('js-list-append');
 });
